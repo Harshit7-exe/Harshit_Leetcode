@@ -2,7 +2,6 @@ class Solution:
     def maximumProduct(self, nums: List[int]) -> int:
         first = second = third = float('-inf')
         min1 = min2 = float('inf')
-        max_prod = 0
         for n in nums:
             if  n > first:
                 third = second
