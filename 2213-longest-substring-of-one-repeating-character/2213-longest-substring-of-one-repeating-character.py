@@ -29,7 +29,7 @@ class SegmentTree:
                 
         return parent
 
-    # Indented by 4 spaces to place inside SegmentTree
+   
     def build(self, node, start, end):
         if start == end:
             self.tree[node].max_len = 1
@@ -43,7 +43,7 @@ class SegmentTree:
         self.build(2 * node + 1, mid + 1, end)
         self.tree[node] = self.merge(self.tree[2 * node], self.tree[2 * node + 1], mid)
 
-    # Indented by 4 spaces to place inside SegmentTree
+   
     def update(self, node, start, end, idx, ch):
         if start == end:
             self.s[idx] = ch
@@ -64,7 +64,7 @@ class Solution:
         
         for ch, idx in zip(queryCharacters, queryIndices):
             st.update(1, 0, st.n - 1, idx, ch)
-            # Corrected to pull from the root node (index 1) of the tree
+           
             lengths.append(st.tree[1].max_len)
             
         return lengths
