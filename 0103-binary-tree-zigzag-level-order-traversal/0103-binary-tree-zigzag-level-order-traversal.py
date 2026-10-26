@@ -9,15 +9,15 @@ class Solution:
         result = []
         def dfs(node, depth):
             if not node:
-                return 
+                return []
             if depth == len(result):
                 result.append([])
-            if depth % 2 == 0:
-                result[depth].append(node.val)
-            else:
-                result[depth].insert(0, node.val)
+            result[depth].append(node.val)
             dfs(node.left, depth + 1)
             dfs(node.right, depth + 1)
         dfs(root, 0)
+        for depth in range(len(result)):
+            if depth % 2 != 0:
+                result[depth].reverse()
         return result
         
